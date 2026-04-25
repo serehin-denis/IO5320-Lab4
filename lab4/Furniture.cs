@@ -7,7 +7,7 @@ namespace lab4;
 public class Furniture
 {
     public Word Name { get; }
-    public Word Material { get; }
+    public Sentence Material { get; }
     public Word Destination { get; }
     public int Price { get; }
     public int Year { get; }
@@ -20,7 +20,7 @@ public class Furniture
     /// <param name="destination">Кімната або місце призначення.</param>
     /// <param name="price">Ціна у гривнях.</param>
     /// <param name="year">Рік випуску.</param>
-    public Furniture(Word name, Word material, Word destination, int price, int year)
+    public Furniture(Word name, Sentence material, Word destination, int price, int year)
     {
         Name = name;
         Material = material;
@@ -47,14 +47,15 @@ public class Furniture
     {
         if (obj is Furniture other)
         {
-            return Name == other.Name && 
-                   Material == other.Material &&
-                   Destination == other.Destination &&
-                   Price == other.Price &&
-                   Year == other.Year;
+            return this.Name.Equals(other.Name) &&
+                   this.Material.Equals(other.Material) &&
+                   this.Destination.Equals(other.Destination) &&
+                   this.Price == other.Price &&
+                   this.Year == other.Year;
         }
         return false;
     }
+    
     
     /// <summary>
     /// Генерує унікальний хеш-код на основі властивостей об'єкта.

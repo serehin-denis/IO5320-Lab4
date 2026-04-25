@@ -6,6 +6,10 @@ public class Letter
     
     public Letter(char symbol)
     {
+        if (!char.IsLetter(symbol))
+        {
+            throw new ArgumentException($"Помилка: '{symbol}' має недопустимі символи");
+        }
         Symbol = symbol;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace lab4;
 
-public class Word
+public class Word : ISentenceItem
 {
     public List<Letter> Letters { get; } = new List<Letter>();
 
@@ -18,5 +18,22 @@ public class Word
         char[] chars = Letters.Select(l => l.Symbol).ToArray();
         
         return new string(chars);
+    }
+    
+    public static implicit operator Word(string text)
+    {
+        return new Word(text);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if ((obj is Word otherword))
+        {
+            var chars = this.Letters.Select(l => l.Symbol);
+            var otherChars = otherword.Letters.Select(l => l.Symbol);
+
+            return chars.SequenceEqual(otherChars);
+        }
+        return false;
     }
 }
