@@ -8,7 +8,7 @@ public class Furniture
 {
     public Word Name { get; }
     public Sentence Material { get; }
-    public Word Destination { get; }
+    public Sentence Destination { get; }
     public int Price { get; }
     public int Year { get; }
 
@@ -20,7 +20,7 @@ public class Furniture
     /// <param name="destination">Кімната або місце призначення.</param>
     /// <param name="price">Ціна у гривнях.</param>
     /// <param name="year">Рік випуску.</param>
-    public Furniture(Word name, Sentence material, Word destination, int price, int year)
+    public Furniture(Word name, Sentence material, Sentence destination, int price, int year)
     {
         Name = name;
         Material = material;
