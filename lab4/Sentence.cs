@@ -1,4 +1,6 @@
-﻿namespace lab4;
+﻿using System.Text.RegularExpressions;
+
+namespace lab4;
 
 /// <summary>
 /// Представляє речення, що складається зі слів та знаків пунктуації.
@@ -14,6 +16,7 @@ public class Sentence
    /// <exception cref="ArgumentException">Викидається при наявності недопустимих символів.</exception>
    public Sentence(string sentence)
    {
+      sentence = Regex.Replace(sentence, @"\s+", " ");
       string word = "";
       foreach (char c in sentence)
       {
@@ -53,7 +56,7 @@ public class Sentence
    }
    
    /// <summary>
-   /// Дозволяє неявне перетворення рядка у об'єкт <see cref="Sentence"/>.
+   /// Дозволяє неявне перетворення рядка в об'єкт <see cref="Sentence"/>.
    /// </summary>
    /// <param name="text">Текст речення.</param>
    public static implicit operator Sentence(string text)
